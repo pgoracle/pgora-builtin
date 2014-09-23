@@ -1,4 +1,4 @@
-functions
-=========
+pgora-func
+==========
 
-Oracle Compatibility: Built in Functions
+Oracle Compatibility Functions for PostgreSQL
