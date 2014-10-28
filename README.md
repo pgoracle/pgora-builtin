@@ -1,15 +1,11 @@
-= Orafce - Oracle's compatibility functions and packages
+= pgora-builtin - Oracle compatibility functions and packages for PostgreSQL
 
 Functions and operators that emulate a subset of functions and packages from the Oracle RDBMS.
 
 == Oracle functions and Oracle packages
 
-This module contains some useful function which can help with porting
+This module contains useful functions which can help with porting
 Oracle application to PostgreSQL or can be useful generally. 
-
-Built-in Oracle date functions have been tested against Oracle 10 for
-comformance. Date ranges from 1960 to 2070 work correctly. Dates before
-1100-03-01 cannot be verified due to a bug in Oracle.
 
 All functions are fully compatible with Oracle and respect all known
 format strings. Detailed description you can find on internet. Find
@@ -626,30 +622,3 @@ because oracle.substr is installed side-by-side with pg_catalog.substr.
 
 * better documentation                                             
 * better seralization in dbms_pipe (via _send and _recv functions) 
-* alter shared memory structures by temporary tables: only locks are in shmem, (bitmaps), data in tmp tbl
-
-== License
-
-This module is released under BSD licence. 
-
-== Contributors
-
-The project was founded in 2008 by Pavel Stehule <stehule@kix.fsv.cvut.cz>.
-
-Other contributors:
-
-* Peter Eisentraut (petere)
-* Gavin Sherry (swm)
-* Pavel Stehule (okbob)
-* Heikki Linnakangas (hlinnaka)
-* Gabriele Bartolini (gbartolini)
-* Zdenek Kotala (hlipa)
-* Takahiro Itagaki (itagaki)
-* Marco Nenciarini (mnencia)
-* Pavan Deolasee (pavanvd)
-* Jeffrey Cohen (jcohen)
-* Amit Langote (amitlan)
-* Rahila Syed (rahila)
-* Beena Emerson (b-emerson)
-* Vinayak Pokale
-* Fujii Masao

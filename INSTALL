@@ -1,0 +1,13 @@
+Installation
+============
+
+This module is normally distributed as a PostgreSQL 'contrib' module. To
+install it from a pre-configured source tree run the following commands
+as a user with appropriate privileges from the pgora-builtin source directory:
+
+make
+make install
+
+To install pgora-builtin functions in the database, run pgora-builtin.sql  
+
+This package requires PostgreSQL 9.4.
