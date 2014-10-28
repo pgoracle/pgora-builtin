@@ -1,4 +1,3 @@
-/* contrib/orafce--3.0.sql */
 
 CREATE FUNCTION pg_catalog.trunc(value date, fmt text)
 RETURNS date

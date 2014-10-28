@@ -1,11 +1,11 @@
-MODULE_big = orafunc
+MODULE_big = pgorafunc
 OBJS= convert.o file.o datefce.o magic.o others.o plvstr.o plvdate.o shmmc.o plvsubst.o utility.o plvlex.o alert.o pipe.o sqlparse.o putline.o assert.o plunit.o random.o aggregate.o oraguc.o
 
-EXTENSION = orafce
+EXTENSION = pgorafunc
 
-DATA_built = orafunc.sql
-DATA = uninstall_orafunc.sql orafce--3.0.7.sql orafce--unpackaged--3.0.7.sql
-DOCS = README.asciidoc COPYRIGHT.orafunc INSTALL.orafunc
+DATA_built = pgorafunc.sql
+DATA = uninstall_pgorafunc.sql pgorafunc--9.4.sql pgorafunc--unpackaged--9.4.sql
+DOCS = README.md COPYRIGHT INSTALL
 
 PG_CONFIG ?= pg_config
 
@@ -16,7 +16,7 @@ INTVERSION := $(shell echo $$(($$(echo $(VERSION) | sed 's/\([[:digit:]]\{1,\}\)
 # make "all" the default target
 all:
 
-REGRESS = orafunc dbms_output dbms_utility files
+REGRESS = pgorafunc dbms_output dbms_utility files
 
 ifeq ($(shell echo $$(($(INTVERSION) >= 804))),1)
 REGRESS += aggregates nlssort dbms_random
@@ -35,7 +35,7 @@ endif
 
 installcheck: $(REGRESSION_EXPECTED)
 
-EXTRA_CLEAN = sqlparse.c sqlparse.h sqlscan.c y.tab.c y.tab.h orafunc.sql.in expected/orafunc.out expected/dbms_pipe_session_B.out
+EXTRA_CLEAN = sqlparse.c sqlparse.h sqlscan.c y.tab.c y.tab.h pgorafunc.sql.in expected/pgorafunc.out expected/dbms_pipe_session_B.out
 
 ifndef USE_PGXS
 top_builddir = ../..
@@ -105,7 +105,7 @@ endif
 orafunc.sql.in:
 	if [ -f orafunc-$(MAJORVERSION).sql ] ; \
 	then \
-	cat orafunc-common.sql orafunc-$(MAJORVERSION).sql > orafunc.sql.in; \
+	cat pgorafunc-common.sql pgorafunc-$(MAJORVERSION).sql > pgorafunc.sql.in; \
 	else \
-	cat orafunc-common.sql orafunc-common-2.sql > orafunc.sql.in; \
+	cat pgorafunc-common.sql pgorafunc-common-2.sql > pgorafunc.sql.in; \
 	fi
